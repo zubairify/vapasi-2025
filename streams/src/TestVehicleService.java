@@ -11,7 +11,8 @@ public class TestVehicleService {
 
         vehicleService.add(new Vehicle(106,"Astor","MG","Red","Battery",1250000));
 
-        vehicleService.findAll().forEach(System.out::println);
+//        vehicleService.findAll().forEach(System.out::println);
 
+        System.out.println(vehicleService.findByCode(102));
     }
 }

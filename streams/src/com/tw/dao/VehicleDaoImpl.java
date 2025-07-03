@@ -16,7 +16,7 @@ public class VehicleDaoImpl implements VehicleDao {
     public VehicleDaoImpl() {
 //        vehicles = new ArrayList<>();
         try {
-            Stream<String> lines = Files.lines(Paths.get("src/vehicles.txt"));
+            Stream<String> lines = Files.lines(Paths.get("streams/src/vehicles.txt"));
 
             vehicles = lines.map(line -> {
                 String[] record = line.split(",");
