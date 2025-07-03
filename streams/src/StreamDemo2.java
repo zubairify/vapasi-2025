@@ -17,5 +17,8 @@ public class StreamDemo2 {
 //		str.map(s -> s.toUpperCase()).forEach(System.out::println);
 		
 		str.filter(s -> s.contains("a")).forEach(System.out::println);
+
+		long count = basket.stream().filter(s -> s.endsWith("a")).count();
+
 	}
 }
