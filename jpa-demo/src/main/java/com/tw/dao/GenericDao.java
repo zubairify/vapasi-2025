@@ -1,11 +1,9 @@
 package com.tw.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
-public class GenericDao<Z> {
+public class GenericDao<Z,P> {
     private EntityManagerFactory emf;
     private Class<Z> entityClass;
 
@@ -23,10 +21,15 @@ public class GenericDao<Z> {
         return true;
     }
 
-    public Z findById(Integer id) {
+    public Z findById(P id) {
         EntityManager em = emf.createEntityManager();
         return em.find(entityClass, id);
     }
 
+    public List<Z> findAll() {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("from "+entityClass.getName());
+        return query.getResultList();
+    }
 }
 

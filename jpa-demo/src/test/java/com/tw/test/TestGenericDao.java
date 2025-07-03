@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 
 public class TestGenericDao {
 
-    private static GenericDao<Customer> dao;
+    private static GenericDao<Customer, Integer> dao;
 
     @BeforeAll
     public static void init() {
-        dao = new GenericDao<Customer>(Customer.class);
+        dao = new GenericDao<Customer, Integer>(Customer.class);
     }
 
     @Test
