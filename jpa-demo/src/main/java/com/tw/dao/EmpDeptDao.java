@@ -3,10 +3,10 @@ package com.tw.dao;
 import com.tw.entity.Department;
 import com.tw.entity.Employee;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+
+import javax.persistence.*;
+import java.math.BigInteger;
+import java.util.List;
 
 public class EmpDeptDao {
     private EntityManagerFactory emf;
@@ -68,5 +68,17 @@ public class EmpDeptDao {
             txn.rollback();
             return false;
         }
+    }
+
+    public List<Employee> listEmpPune5k() {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createNamedQuery("empPune5k");
+        return query.getResultList();
+    }
+
+    public int countEmpDept20() {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createNamedQuery("dept20");
+        return ((BigInteger) query.getSingleResult()).intValue();
     }
 }

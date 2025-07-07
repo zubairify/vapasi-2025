@@ -45,6 +45,21 @@ public class CustomerDao {
         return query.getResultList();
     }
 
+    public List<Customer> findByCreditRange(double min, double max) {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("SELECT z FROM Customer z WHERE crLimit BETWEEN :min AND :max");
+        query.setParameter("min", min);
+        query.setParameter("max", max);
+        return query.getResultList();
+    }
+
+    public List<Customer> findBy5k() {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createNamedQuery("cust5k");
+        query.setParameter("lmt", 5000);
+        return query.getResultList();
+    }
+
     public boolean delete(int custId) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction txn = em.getTransaction();

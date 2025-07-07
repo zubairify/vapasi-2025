@@ -20,14 +20,14 @@ public class TestEmpDeptDao {
 
     @Test
     public void testAddDept() {
-        Department dept = new Department(10, "Sales", "Chennai");
+        Department dept = new Department(20, "IT", "Pune");
         assertTrue(dao.addDept(dept));
     }
 
     @Test
     public void testAddEmp() {
-        Employee emp = new Employee("Samantha",1950);
-        assertTrue(dao.addEmp(emp, 10));
+        Employee emp = new Employee("Jack",7500);
+        assertTrue(dao.addEmp(emp, 20));
     }
 
     @Test
@@ -52,5 +52,19 @@ public class TestEmpDeptDao {
     @Test
     public void testDelDept() {
         assertTrue(dao.delDept(10));
+    }
+
+    @Test
+    public void testEmpPune5k() {
+        List<Employee> emps = dao.listEmpPune5k();
+        assertTrue(!emps.isEmpty());
+        emps.forEach(System.out::println);
+    }
+
+    @Test
+    public void testEmpDept20() {
+        int count = dao.countEmpDept20();
+        assertTrue(count > 0);
+        System.out.println("count:" + count);
     }
 }
