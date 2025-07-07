@@ -5,6 +5,9 @@ import com.tw.entity.Department;
 import com.tw.entity.Employee;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestEmpDeptDao {
@@ -23,7 +26,7 @@ public class TestEmpDeptDao {
 
     @Test
     public void testAddEmp() {
-        Employee emp = new Employee("Frudo",1850);
+        Employee emp = new Employee("Samantha",1950);
         assertTrue(dao.addEmp(emp, 10));
     }
 
@@ -32,12 +35,22 @@ public class TestEmpDeptDao {
         Department dept = dao.getDept(10);
         assertNotNull(dept);
         System.out.println(dept);
+        List<Employee> emps = dept.getEmps();
+        emps.forEach(System.out::println);
+
     }
 
     @Test
     public void testGetEmp() {
-        Employee emp = dao.getEmp(10);
+        Employee emp = dao.getEmp(1);
         assertNotNull(emp);
         System.out.println(emp);
+        Department d = emp.getDept();
+        System.out.println(d);
+    }
+
+    @Test
+    public void testDelDept() {
+        assertTrue(dao.delDept(10));
     }
 }

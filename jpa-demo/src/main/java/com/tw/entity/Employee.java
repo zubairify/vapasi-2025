@@ -4,7 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Getter @Setter @NoArgsConstructor @ToString
+@Getter @Setter @NoArgsConstructor
 @Entity
 @Table(name = "emp")
 public class Employee {
@@ -22,5 +22,10 @@ public class Employee {
     public Employee(String empName, double salary) {
         this.empName = empName;
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Emp Id: " + empId + ", EmpName: " + empName + ", Salary: " + salary;
     }
 }
