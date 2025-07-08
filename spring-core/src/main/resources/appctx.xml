@@ -7,20 +7,6 @@
                            http://www.springframework.org/schema/context
                            https://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--    <bean id="hi" class="ex1.Hello" /> -->
-<!--    <bean id="hi" class="ex1.Hello">-->
-<!--        <constructor-arg value="Hello Spring" />-->
-<!--    </bean> -->
-<!--    <bean id="hi" class="ex1.Hello">-->
-<!--        <property name="greeting" value="Hola Spring" />-->
-<!--    </bean> -->
+    <context:component-scan base-package="ex4,ex8" />
 
-    <bean id="str" class="java.lang.String">
-        <constructor-arg value="Aloha Spring" />
-    </bean>
-
-    <bean id="hi" class="ex1.Hello">
-<!--        <constructor-arg ref="str" /> -->
-        <property name="greeting" ref="str" />
-    </bean>
 </beans>
