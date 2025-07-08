@@ -3,7 +3,6 @@ package com.tw.dao;
 import com.tw.entity.Department;
 import com.tw.entity.Employee;
 
-
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.List;
